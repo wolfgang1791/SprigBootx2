@@ -2,7 +2,6 @@ package com.example.demo.entity;
 
 import java.util.Set;
 import java.util.HashSet;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -41,7 +40,6 @@ public class User {
 		this.userrole = userrole;
 	}
 	
-	public User() {}
 
 	public String getUsername() {
 		return username;
