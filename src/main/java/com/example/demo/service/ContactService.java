@@ -13,5 +13,6 @@ public interface ContactService {
 	public abstract ContactModel addContact(ContactModel contactmodel);
 	public abstract List<ContactModel> listAllContacts();
 	public abstract Contact findContactbyId(Integer id);
+	public abstract ContactModel  findContactModeltbyId(Integer id);
 	public abstract void removeContact(Integer id);
 }
