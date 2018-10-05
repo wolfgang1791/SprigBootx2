@@ -40,6 +40,20 @@ public class ContactServiceImpl implements ContactService {
 		}
 		return listmodel;
 	}
+
+	@Override
+	public Contact findContactbyId(Integer id) {
+		return contactrepository.findById(id);
+	}
+
+	@Override
+	public void removeContact(Integer id) {
+		Contact c = findContactbyId(id);
+		if(!c.equals(null)) contactrepository.delete(c);
+		
+	}
+	
+	
 	
 	
 
