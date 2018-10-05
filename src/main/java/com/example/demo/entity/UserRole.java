@@ -19,7 +19,7 @@ public class UserRole {
 	@Column(name="userroleId",unique=true,nullable=false)
 	private Integer userroleId;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="username",nullable=false)
 	private User user;
 	

@@ -10,11 +10,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.entity.User;
 import com.example.demo.entity.UserRole;
 import com.example.demo.repository.UserRepository;
 
@@ -22,20 +22,19 @@ import com.example.demo.repository.UserRepository;
 public class UserServiceImpl implements UserDetailsService{
 	
 	@Autowired
-	@Qualifier("UserRepository")
-	UserRepository userrepository;
+	@Qualifier("userRepository")
+	UserRepository userRepository;
 	
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User u = userrepository.findbyUsername(username);
+		com.example.demo.entity.User u = userRepository.findByUsername(username);
 		List<GrantedAuthority> authorities = buildAuthorities(u.getUserrole());
-		return (UserDetails) builUser(u,authorities);
+		return builUser(u,authorities);
 	}
 	
-	private User builUser(User user,List<GrantedAuthority> authorities) {
-		return new User(user.getUsername(), user.getPassword(), user.isEnabled());
-		
+	private User builUser(com.example.demo.entity.User user,List<GrantedAuthority> authorities) {
+		return new User(user.getUsername(), user.getPassword(), user.isEnabled(),true,true,true, authorities);
 	}
 	
 	@SuppressWarnings("unused")
