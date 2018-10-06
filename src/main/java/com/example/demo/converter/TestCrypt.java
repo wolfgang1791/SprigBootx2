@@ -6,7 +6,7 @@ public class TestCrypt {
 
 	public static void main(String[] args) {
 		BCryptPasswordEncoder bcpe = new BCryptPasswordEncoder();
-		System.out.println(bcpe.encode("user"));
+		System.out.println(bcpe.encode("@p0ll0n1@"));
 	}
 
 }
