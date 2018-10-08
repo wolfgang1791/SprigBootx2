@@ -13,7 +13,10 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
-
+  
+  thymeleaf:
+    cache: false
+    
 banner:
   location: classpath:/example/banner.txt
 

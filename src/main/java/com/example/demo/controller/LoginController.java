@@ -11,12 +11,25 @@ import com.example.demo.constant.ViewConstant;
 
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LoginController.
+ */
 @Controller
 public class LoginController {
 	
+	/** The Constant LOG. */
 	private static final Log LOG = LogFactory.getLog(LoginController.class);
 	
 	
+	/**
+	 * Show loginform.
+	 *
+	 * @param model the model
+	 * @param error the error
+	 * @param logout the logout
+	 * @return the string
+	 */
 	@GetMapping("/login")
 	public String showLoginform(Model model,@RequestParam(name="error",required=false) String error,
 								@RequestParam(name="logout",required=false) String logout ) {
@@ -28,6 +41,11 @@ public class LoginController {
 		return ViewConstant.LOGIN;
 	}
 	
+	/**
+	 * Login check.
+	 *
+	 * @return the string
+	 */
 	@GetMapping({"/loginsuccess","/"})
 	public String LoginCheck() {
 		LOG.info("cascascascascascdvsdf ");
